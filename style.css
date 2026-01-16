@@ -355,6 +355,24 @@ h2::after {
     max-width: none;
 }
 
+.album-teaser {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(255, 20, 147, 0.05);
+    border: 1px solid rgba(255, 20, 147, 0.2);
+    border-radius: 12px;
+    text-align: center;
+    animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+.album-teaser p {
+    font-style: italic;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+    font-weight: 300;
+}
+
 h3 {
     font-family: 'Space Grotesk', monospace;
     font-size: 1.5rem;
@@ -363,6 +381,26 @@ h3 {
     margin: 3rem 0 1.5rem 0;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+}
+
+iframe {
+    width: 100%;
+    max-width: 100%;
+    border: none;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    height: 352px;
+    display: block;
+}
+
+@media (min-width: 769px) {
+    iframe {
+        box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.3),
+            0 0 15px rgba(138, 43, 226, 0.4),
+            0 0 30px rgba(138, 43, 226, 0.2),
+            0 0 45px rgba(138, 43, 226, 0.1);
+    }
 }
 
 ul {
@@ -450,9 +488,12 @@ li:hover::before {
     }
 }
 
-.cta-button:active {
+.cta-button:active,
+.cta-button:focus {
     transform: translateY(0);
     box-shadow: 0 2px 10px rgba(233, 30, 99, 0.3);
+    outline: 2px solid rgba(255, 20, 147, 0.8);
+    outline-offset: 2px;
 }
 
 .socials {
@@ -463,16 +504,6 @@ li:hover::before {
     margin-top: 60px;
 }
 
-.socials h3 {
-    font-family: 'Space Grotesk', monospace;
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: #ffffff;
-    margin-bottom: 2rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    text-align: center;
-}
 
 .social-links {
     display: flex;
@@ -593,6 +624,10 @@ footer small {
         padding: 30px 20px;
     }
 
+    iframe {
+        height: 280px;
+    }
+
     ul {
         grid-template-columns: 1fr;
         gap: 0.5rem;
@@ -656,4 +691,14 @@ footer small {
         margin: 0.5rem auto;
         width: fit-content;
     }
+
+    iframe {
+        height: 240px;
+    }
+
+@media (max-width: 360px) {
+    iframe {
+        height: 152px;
+    }
+}
 }
