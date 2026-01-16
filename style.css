@@ -18,6 +18,41 @@ html {
     }
 }
 
+@keyframes galaxyRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes nebulaDrift {
+    0% {
+        transform: translateX(-10px) translateY(-5px) rotate(0deg);
+    }
+    33% {
+        transform: translateX(10px) translateY(10px) rotate(120deg);
+    }
+    66% {
+        transform: translateX(-5px) translateY(-10px) rotate(240deg);
+    }
+    100% {
+        transform: translateX(-10px) translateY(-5px) rotate(360deg);
+    }
+}
+
 @keyframes neonGlow {
     from {
         box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5),
@@ -49,6 +84,13 @@ body {
     overflow-x: hidden;
 }
 
+@supports (animation: galaxyRotate 20s linear infinite) {
+    body {
+        background: radial-gradient(ellipse at center, #0c0c0c 0%, #1a1a2e 30%, #16213e 70%, #0a0a0a 100%);
+        background-attachment: fixed;
+    }
+}
+
 body::before {
     content: '';
     position: fixed;
@@ -64,6 +106,55 @@ body::before {
     z-index: -1;
 }
 
+@supports (animation: galaxyRotate 20s linear infinite) {
+    body::before {
+        background-image:
+            /* Central galaxy core */
+            radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.08) 0%, rgba(255, 215, 0, 0.04) 20%, transparent 40%),
+            /* Galaxy rings - concentric circles */
+            radial-gradient(circle at 50% 50%, transparent 25%, rgba(138, 43, 226, 0.03) 30%, rgba(138, 43, 226, 0.02) 35%, transparent 45%),
+            radial-gradient(circle at 50% 50%, transparent 35%, rgba(255, 20, 147, 0.025) 40%, rgba(255, 20, 147, 0.015) 50%, transparent 60%),
+            radial-gradient(circle at 50% 50%, transparent 50%, rgba(138, 43, 226, 0.02) 55%, rgba(138, 43, 226, 0.01) 65%, transparent 75%),
+            /* Radial arms extending from center */
+            radial-gradient(ellipse 150% 30% at 50% 50%, rgba(255, 20, 147, 0.03) 0%, transparent 80%),
+            radial-gradient(ellipse 30% 150% at 50% 50%, rgba(138, 43, 226, 0.025) 0%, transparent 80%),
+            radial-gradient(ellipse 120% 25% at 50% 50%, rgba(255, 20, 147, 0.02) 0%, transparent 70%),
+            radial-gradient(ellipse 25% 120% at 50% 50%, rgba(138, 43, 226, 0.02) 0%, transparent 70%),
+            /* Outer nebula clouds */
+            radial-gradient(circle at 20% 30%, rgba(255, 20, 147, 0.04) 0%, transparent 40%),
+            radial-gradient(circle at 80% 70%, rgba(138, 43, 226, 0.03) 0%, transparent 35%),
+            radial-gradient(circle at 15% 75%, rgba(255, 215, 0, 0.03) 0%, transparent 30%),
+            radial-gradient(circle at 85% 25%, rgba(255, 20, 147, 0.025) 0%, transparent 35%),
+            /* Background stars */
+            radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.8) 0%, transparent 2%),
+            radial-gradient(circle at 85% 15%, rgba(255, 255, 255, 0.6) 0%, transparent 2%),
+            radial-gradient(circle at 45% 85%, rgba(255, 215, 0, 0.7) 0%, transparent 2%),
+            radial-gradient(circle at 75% 60%, rgba(138, 43, 226, 0.9) 0%, transparent 2%),
+            radial-gradient(circle at 20% 60%, rgba(255, 20, 147, 0.7) 0%, transparent 2%),
+            radial-gradient(circle at 65% 90%, rgba(138, 43, 226, 0.8) 0%, transparent 2%);
+        animation: galaxyRotate 60s linear infinite;
+    }
+
+    body::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image:
+            /* Twinkling stars */
+            radial-gradient(circle at 25% 40%, rgba(255, 255, 255, 0.9) 0%, transparent 3%),
+            radial-gradient(circle at 60% 25%, rgba(255, 215, 0, 0.8) 0%, transparent 2%),
+            radial-gradient(circle at 90% 70%, rgba(255, 20, 147, 0.7) 0%, transparent 2%),
+            radial-gradient(circle at 15% 85%, rgba(138, 43, 226, 0.8) 0%, transparent 2%),
+            radial-gradient(circle at 35% 10%, rgba(255, 255, 255, 0.6) 0%, transparent 2%);
+        pointer-events: none;
+        z-index: -1;
+        animation: twinkle 4s ease-in-out infinite alternate;
+    }
+}
+
 header {
     padding: 100px 20px 80px;
     background: url('img/banner.jpg') center/cover no-repeat,
@@ -72,6 +163,13 @@ header {
     min-height: 70vh;
     display: flex;
     align-items: center;
+}
+
+@supports (animation: galaxyRotate 20s linear infinite) {
+    header {
+        background: url('img/banner.jpg') center/cover no-repeat,
+                    linear-gradient(135deg, rgba(138, 43, 226, 0.2) 0%, rgba(255, 20, 147, 0.2) 100%);
+    }
 }
 
 header::before {
@@ -84,6 +182,13 @@ header::before {
     background: radial-gradient(circle at 30% 20%, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.2) 50%, transparent 100%),
                 radial-gradient(circle at 70% 80%, rgba(138, 43, 226, 0.3) 0%, transparent 50%);
     pointer-events: none;
+}
+
+@supports (animation: galaxyRotate 20s linear infinite) {
+    header::before {
+        background: radial-gradient(circle at 30% 20%, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.1) 50%, transparent 100%),
+                    radial-gradient(circle at 70% 80%, rgba(138, 43, 226, 0.2) 0%, transparent 50%);
+    }
 }
 
 .hero-content {
