@@ -18,6 +18,21 @@ html {
     }
 }
 
+@keyframes neonGlow {
+    from {
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5),
+                    0 0 20px rgba(233, 30, 99, 0.6),
+                    0 0 40px rgba(233, 30, 99, 0.4),
+                    0 0 60px rgba(233, 30, 99, 0.2);
+    }
+    to {
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5),
+                    0 0 25px rgba(233, 30, 99, 0.8),
+                    0 0 50px rgba(233, 30, 99, 0.6),
+                    0 0 75px rgba(233, 30, 99, 0.4);
+    }
+}
+
 .album-announce, .socials {
     animation: fadeInUp 0.8s ease-out;
 }
@@ -92,16 +107,22 @@ header::before {
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid rgba(255, 255, 255, 0.3);
+    border: 4px solid #e91e63;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5),
-                0 0 40px rgba(138, 43, 226, 0.4);
+                0 0 20px rgba(233, 30, 99, 0.6),
+                0 0 40px rgba(233, 30, 99, 0.4),
+                0 0 60px rgba(233, 30, 99, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: neonGlow 2s ease-in-out infinite alternate;
 }
 
 .profile-image:hover {
     transform: scale(1.05);
     box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6),
-                0 0 50px rgba(138, 43, 226, 0.6);
+                0 0 30px rgba(233, 30, 99, 0.9),
+                0 0 60px rgba(233, 30, 99, 0.7),
+                0 0 90px rgba(233, 30, 99, 0.5);
+    animation: none;
 }
 
 .hero-text {
@@ -170,6 +191,7 @@ h2::after {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     position: relative;
     overflow: hidden;
+    text-align: center;
 }
 
 .album-announce::before {
@@ -183,7 +205,7 @@ h2::after {
 }
 
 .album-cover {
-    max-width: 300px;
+    max-width: 400px;
     width: 100%;
     border-radius: 15px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5),
@@ -461,11 +483,12 @@ footer small {
     }
 
     .social-links {
-        flex-direction: row;
-        justify-content: center;
+        display: flex;
         flex-wrap: wrap;
+        justify-content: center;
         gap: 1rem;
-        max-width: none;
+        max-width: 260px;
+        margin: 0 auto;
     }
 
     .social-links a {
@@ -494,6 +517,15 @@ footer small {
     .album-announce {
         margin: 20px 10px;
         padding: 20px 15px;
+    }
+
+    .social-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+        max-width: 240px;
+        margin: 0 auto;
     }
 
     .social-links a {
