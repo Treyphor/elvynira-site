@@ -221,15 +221,14 @@ header::before {
     animation: neonGlow 2s ease-in-out infinite alternate;
 }
 
-@media (hover: hover) {
-    .profile-image:hover {
-        transform: scale(1.05);
-        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6),
-                    0 0 30px rgba(233, 30, 99, 0.9),
-                    0 0 60px rgba(233, 30, 99, 0.7),
-                    0 0 90px rgba(233, 30, 99, 0.5);
-        animation: none;
-    }
+.profile-image:hover,
+.profile-image:active {
+    transform: scale(1.05);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6),
+                0 0 30px rgba(233, 30, 99, 0.9),
+                0 0 60px rgba(233, 30, 99, 0.7),
+                0 0 90px rgba(233, 30, 99, 0.5);
+    animation: none;
 }
 
 .hero-text {
@@ -323,13 +322,12 @@ h2::after {
     overflow: hidden;
 }
 
-@media (hover: hover) {
-    .album-cover:hover {
-        transform: translateY(-8px) scale(1.03) rotate(1deg);
-        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7),
-                    0 0 50px rgba(138, 43, 226, 0.6),
-                    0 0 80px rgba(255, 20, 147, 0.3);
-    }
+.album-cover:hover,
+.album-cover:active {
+    transform: translateY(-8px) scale(1.03) rotate(1deg);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7),
+                0 0 50px rgba(138, 43, 226, 0.6),
+                0 0 80px rgba(255, 20, 147, 0.3);
 }
 
 .album-cover::before {
@@ -343,10 +341,9 @@ h2::after {
     transition: left 0.6s ease;
 }
 
-@media (hover: hover) {
-    .album-cover:hover::before {
-        left: 100%;
-    }
+.album-cover:hover::before,
+.album-cover:active::before {
+    left: 100%;
 }
 
 .album-announce p {
