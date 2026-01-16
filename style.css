@@ -116,13 +116,15 @@ header::before {
     animation: neonGlow 2s ease-in-out infinite alternate;
 }
 
-.profile-image:hover {
-    transform: scale(1.05);
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6),
-                0 0 30px rgba(233, 30, 99, 0.9),
-                0 0 60px rgba(233, 30, 99, 0.7),
-                0 0 90px rgba(233, 30, 99, 0.5);
-    animation: none;
+@media (hover: hover) {
+    .profile-image:hover {
+        transform: scale(1.05);
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6),
+                    0 0 30px rgba(233, 30, 99, 0.9),
+                    0 0 60px rgba(233, 30, 99, 0.7),
+                    0 0 90px rgba(233, 30, 99, 0.5);
+        animation: none;
+    }
 }
 
 .hero-text {
@@ -216,11 +218,13 @@ h2::after {
     overflow: hidden;
 }
 
-.album-cover:hover {
-    transform: translateY(-8px) scale(1.03) rotate(1deg);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7),
-                0 0 50px rgba(138, 43, 226, 0.6),
-                0 0 80px rgba(255, 20, 147, 0.3);
+@media (hover: hover) {
+    .album-cover:hover {
+        transform: translateY(-8px) scale(1.03) rotate(1deg);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7),
+                    0 0 50px rgba(138, 43, 226, 0.6),
+                    0 0 80px rgba(255, 20, 147, 0.3);
+    }
 }
 
 .album-cover::before {
@@ -234,8 +238,10 @@ h2::after {
     transition: left 0.6s ease;
 }
 
-.album-cover:hover::before {
-    left: 100%;
+@media (hover: hover) {
+    .album-cover:hover::before {
+        left: 100%;
+    }
 }
 
 .album-announce p {
@@ -243,7 +249,7 @@ h2::after {
     line-height: 1.7;
     color: rgba(255, 255, 255, 0.9);
     margin-bottom: 2rem;
-    text-align: left;
+    text-align: center;
     max-width: none;
 }
 
@@ -329,13 +335,17 @@ li:hover::before {
     transition: left 0.5s ease;
 }
 
-.cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(233, 30, 99, 0.4);
+@media (hover: hover) {
+    .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(233, 30, 99, 0.4);
+    }
 }
 
-.cta-button:hover::before {
-    left: 100%;
+@media (hover: hover) {
+    .cta-button:hover::before {
+        left: 100%;
+    }
 }
 
 .cta-button:active {
@@ -399,16 +409,20 @@ li:hover::before {
     transition: left 0.5s ease;
 }
 
-.social-links a:hover {
-    color: #ffffff;
-    border-color: rgba(138, 43, 226, 0.5);
-    background: rgba(138, 43, 226, 0.1);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(138, 43, 226, 0.2);
+@media (hover: hover) {
+    .social-links a:hover {
+        color: #ffffff;
+        border-color: rgba(138, 43, 226, 0.5);
+        background: rgba(138, 43, 226, 0.1);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(138, 43, 226, 0.2);
+    }
 }
 
-.social-links a:hover::before {
-    left: 100%;
+@media (hover: hover) {
+    .social-links a:hover::before {
+        left: 100%;
+    }
 }
 
 footer {
